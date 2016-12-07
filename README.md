@@ -1,7 +1,7 @@
-#ReadMe for peer-review assignment in Getting and Cleaning Data with R
+#README for peer-review assignment in Getting and Cleaning Data with R
 
 This folder contains the following files
-* This file, ReadMe.md, which will guide you through all other files
+* This file, README.md, which will guide you through all other files
 * The script file scriptGetCleanData.R used to download, read tidy and write the data
 * The file containing the data averageData.csv containing the final narrow data set
 * The code book CodeBook.md specifying the data to be found in the data file
