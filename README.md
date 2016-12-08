@@ -2,16 +2,24 @@
 
 This folder contains the following files
 * This file, README.md, which will guide you through all other files
-* The script file scriptGetCleanData.R used to download, read tidy and write the data
-* The file containing the data averageData.csv containing the final narrow data set
+* The script file run_analysis.R used to download, read tidy and write the data
+* The file containing the data averagedData.txt containing the final narrow data set
 * The code book CodeBook.md specifying the data to be found in the data file
 * The text file dowloadTime.txt which just includes the timestamp for the download of the raw data
 
-###Obtaining and analysing the data -- scriptGetCleanData.R
+###Obtaining and analysing the data -- run_analysis.R
 The script used to perform the analysis described in the assignment text. The script is commented so it should be clear from reading the code what is being done where. The script includes 3 functions:
 * dowloadUnzip() 
 * readAndMerge()
 * setActivityName()
+
+To run the script type:
+**source("run_analysis.R")**
+and either:
+**readAndMerge(download=TRUE)**
+if you want to download the data from the web or:
+**readAndMerge()**
+if the data are already unzipped and located in a ./data subdirectory from your working directory.
 
 #### downloadUnzip
 In case the code needs to be run on a system where the data have not been downloaded this function exists to download the zip-file and unzip it. This operation may take some time and is not strictly part of the steps described in the assignment, hence it seemed natural to keep this functionality in a separate function. However, the main analysis function readAndMerge() includes an option download, which is default set to FALSE. If this download option is set to TRUE, the downloadUnzip functionality will be called before the rest of the function. Hence if you are trying to run the readAndMerge code and run into trouble because the data is missing, trying running with runAndMerg(download=TRUE).
@@ -40,7 +48,8 @@ Finally we create the file averagedData.csv, and write our final data frame to t
 This function is a helpful function to match an activity number between 1 and 6 with the corresponding descriptive activity name. As it takes a few lines of code, I found that it would be better to have it as a separate function, then including it as an anonymous function to be sent to sapply from inside readAndMerge. All it does is take in an integer and sing an if-else-branching setting the activityname according to this number. Then the activityname is returned. This function can then be used by sapply to translate all the activity numbers in the data to descriptive activity names.
 
 ###The final clean and lean data -- averageData.csv
-The final averaged and cleaned data with descriptive variable names and activity names containing both training and test data, can be found in this file. I have chosen comma separated formatting for this file.
+The final averaged and cleaned data with descriptive variable names and activity names containing both training and test data, can be found in this file. To read it in as a useful data frame use the command:
+**read.table("averagedData.txt", header= TRUE)**
 
 ###The code book -- CodeBook.md
 The codebook contains descriptions of each of the variables contained in the data file averadData.csv

@@ -84,7 +84,6 @@ readAndMerge <- function(download = FALSE){
 	varNames <- c("Activity", "SubjectNo", featuresOk) 
 	## Then we make these the column names for our raw data
 	names(fullRawData) <- varNames
-	print(names(fullRawData))
 
 	##Step 2
 	
@@ -131,11 +130,9 @@ readAndMerge <- function(download = FALSE){
 	names(averagedData)[2] <- "SubjectNo"
 	
 	##Then finally we write the data to file
-	## I have chosen comma separated formatting
-	if(!file.exists("./averagedData.csv")){file.create("./averagedData.csv")}
-	write.csv(averagedData, file = "./averagedData.csv", row.names = FALSE)
+	if(!file.exists("./averagedData.txt")){file.create("./averagedData.txt")}
+	write.table(averagedData, file = "./averagedData.txt", row.names = FALSE)
 	
-	averagedData
 
 }
 
