@@ -1,7 +1,7 @@
 # Codebook 
 ##for the Getting and Cleaning Data assignment
 
-#### The data is located in the file: averageData.csv
+#### The data is located in the file: averagedData.txt
 
 ###On the original raw data:
 
